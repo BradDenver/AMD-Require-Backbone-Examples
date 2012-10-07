@@ -1,0 +1,172 @@
+<div class="row">
+
+    <div class="span3 sidebarNav">
+        <ul class="nav nav-list affix">
+            <li><a href="#folders"><i class="icon-chevron-right"></i> Folder Structure</a>
+              <ul class="nav nav-list">
+                <li><a href="#folders-api">API</a>
+                <li><a href="#folders-assets">Assets</a>
+              </ul>
+            </li>
+            <li><a href="#downloads"><i class="icon-chevron-right"></i> Downloads</a></li>
+            <li><a href="#indexHtml"><i class="icon-chevron-right"></i> index.html</a></li>
+            <li><a href="#mainJs"><i class="icon-chevron-right"></i> main.js</a></li>
+        </ul>
+        &nbsp;
+    </div>
+
+    <div class="span9">
+
+        <section id="folders">
+          <div class="page-header">
+            <h1>Folder Structure</h1>
+          </div>
+
+          <div class="bs-docs-example">
+            <ul>
+                <li>api</li>
+                <li>assets
+                    <ul>
+                        <li>css</li>
+                        <li>img</li>
+                    </ul>
+                </li>
+                <li>common</li>
+                <li>modules
+                    <ul>
+                        <li>module1
+                            <ul>
+                                <li>collections</li>
+                                <li>models</li>
+                                <li>templates</li>
+                                <li>views</li>
+                            </ul>
+                        </li>
+                        <!-- <li>module2
+                            <ul>
+                                <li>collections</li>
+                                <li>models</li>
+                                <li>templates</li>
+                                <li>views</li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                </li>
+                <li>vendorAssets
+                    <ul>
+                        <li>css</li>
+                        <li>img</li>
+                        <li>libs
+                            <ul>
+                                <li>require
+                                    <ul>
+                                        <li>require.js</li>
+                                        <li>text.js</li>
+                                    </ul>
+                                </li>
+                                <li>backbone-min.js</li>
+                                <li>jquery.js</li>
+                                <li>underscore-min.js</li>
+                            </ul>
+                        </li>
+                        <li>mixed
+                            <ul>
+                                <li>bootstrap</li>
+                            </ul>
+                        </li>
+                        <li>plugins</li>
+                    </ul>
+                </li>
+                <li>index.html</li>
+                <li>main.js</li>
+            </ul>
+          </div>
+
+          <h4 id="folders-api"><i class="icon-folder-open"></i> api</h4>
+          <p>This folder will be the root folder for our RESTful api. The api will detailed later</p>
+
+          <h4 id="folders-assets"><i class="icon-folder-open"></i> assets</h4>
+          <p>The <code>css</code> and <code>img</code> sub folders will house your site specific css and image files</p>
+
+          <h4><i class="icon-folder-open"></i> common</h4>
+          <p>This folder will house any common js files that are used accross muliple modules</p>
+
+          <h4><i class="icon-folder-open"></i> modules</h4>
+          <p>This folder will have a sub folder for each module you create.</p>
+          <div class="bs-docs-example">
+            <ul>
+                <li>module1
+                    <ul>
+                        <li>collections</li>
+                        <li>models</li>
+                        <li>templates</li>
+                        <li>views</li>
+                    </ul>
+                </li>
+            </ul>
+          </div>
+          <p>Each module folder will have <code>collections</code>, <code>models</code>, <code>templates</code> and <code>views</code> sub folders to hold thier corresponding files. Again this will be covered in more detail later.</p>
+
+          <h4><i class="icon-folder-open"></i> vendorAssets</h4>
+          <p>This will hold js and css assets provided by external vendors eg. Twitter Bootstrap</p>
+          <p><b>css</b> vendor provided css files</p>
+          <p><b>img</b> vendor provided img files</p>
+          <p><b>libs</b> vendor provided js libraries. If the lib is more than a single file it should be nested in its own folder eg. <code>require</code>.</p>
+          <p><b>mixed</b> libraries such as Twitter Boostrap that contain a mix of css/img/js files/folders.</p>
+          <p><b>plugins</b> vendor provided javascript plugins</p>
+
+        </section> <!-- end folders -->
+
+        <section id="downloads">
+          <div class="page-header">
+            <h1>Downloads</h1>
+          </div> <!-- TODO: library icons -->
+
+          <p class="lead">Now we have a folder structure its time to grab some libraries to work with</p>
+
+          <h2>jQuery</h2>
+          <p><a href="http://jquery.com/">jQuery</a> will be our library of choice for working with the DOM. Head to <a href="http://jquery.com/download/">http://jquery.com/download/</a> and grab the minified version of the latest release. This will be a file such as <code>jquery-1.8.2.min.js</code>. Rename it to <code>jquery.min.js</code> and place this in the <code>vendorAssets/libs/</code> folder.</p>
+
+          <h2>Twitter Bootstrap</h2>
+          <p>Next up is <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a>. This will provide us with a css base to work from as well as some handy js widgets. Grab the latest version from <a href="http://twitter.github.com/bootstrap/assets/bootstrap.zip">http://twitter.github.com/bootstrap/assets/bootstrap.zip</a> and place the unzipped bootstrap folder in <code>vendorAssets/mixed/</code>.</p><!-- TODO: folder screenshot -->
+
+          <h2>RequireJS</h2><!-- and text -->
+          <p><a href="http://requirejs.org/">RequireJS</a> will handle our javascript loading and dependency management. We need to grab two files from <a href="http://requirejs.org/docs/download.html">http://requirejs.org/docs/download.html</a>. First we need the latest minified version of <code>require.js</code>. Second we need the text plugin which has a direct link <a href="https://raw.github.com/requirejs/text/latest/text.js">https://raw.github.com/requirejs/text/latest/text.js</a>. Place <code>require.js</code> and <code>text.js</code> in <code>vendorAssets/libs/require/</code>.</p>
+
+          <h2>Underscore.js</h2><!-- or lodash -->
+          <p><a href="http://underscorejs.org/">Underscore.js</a> is a requirement for Backbone.js and contains some great javascript utilites. Grab the latest production version from <a href="http://underscorejs.org/underscore-min.js">http://underscorejs.org/underscore-min.js</a> and place the <code>underscore-min.js</code> file in the <code>vendorAssets/libs/</code> folder.</p>
+          <p class="muted"><small>* In the future I may look at swapping out Underscore.js in favour of <a href="http://lodash.com/">Lo-Dash</a> but for now I'll stick with the default.</small></p>
+
+          <h2>Backbone.js</h2>
+          <p>Last but not least is <a href="http://backbonejs.org/">Backbone.js</a>. This is the framework we will use to build our application. Grab the latest production version from <a href="http://backbonejs.org/backbone-min.js">http://backbonejs.org/backbone-min.js</a> and place the <code>backbone-min.js</code> file in the <code>vendorAssets/libs/</code> folder.</p>
+
+        </section>
+
+        <section id="indexHtml">
+          <div class="page-header">
+            <h1>index.html</h1>
+          </div>
+
+          <p class="lead">Our initial setup is done so its time to start building.</p>
+
+          <h2>A Basic HTML index</h2>
+          <p>The default Bootstrap grid system utilizes <strong>12 columns</strong>, making for a 940px wide container without <a href="./scaffolding.html#responsive">responsive features</a> enabled. With the responsive CSS file added, the grid adapts to be 724px and 1170px wide depending on your viewport. Below 767px viewports, the columns become fluid and stack vertically.</p>
+
+          <pre data-template="index"></pre>
+
+        </section>
+
+        <section id="mainJs">
+          <div class="page-header">
+            <h1>Default grid system</h1>
+          </div>
+
+          <h2>Live grid example</h2>
+          <p>The default Bootstrap grid system utilizes <strong>12 columns</strong>, making for a 940px wide container without <a href="./scaffolding.html#responsive">responsive features</a> enabled. With the responsive CSS file added, the grid adapts to be 724px and 1170px wide depending on your viewport. Below 767px viewports, the columns become fluid and stack vertically.</p>
+          <div style="height: 900px; background-color: #ccc;"> </div>
+
+        </section>
+
+    </div>
+
+</div>

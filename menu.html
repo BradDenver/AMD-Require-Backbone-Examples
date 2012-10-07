@@ -1,0 +1,12 @@
+<ul class="nav nav-list affix">
+    <% _.each(menus, function(menu) { %>
+        <li><a href="#<%= menu.id %>"><i class="icon-chevron-right"></i> <%= menu.label %></a>
+            <ul class="nav nav-list">
+            <% _.each(menu.subMenus, function(subMenu) { %>
+                <li><a href="#<%= subMenu.id %>"><%= subMenu.label %></a></li>
+            <% }); %>
+        </ul>
+        </li>
+    <% }); %>
+</ul>
+&nbsp;

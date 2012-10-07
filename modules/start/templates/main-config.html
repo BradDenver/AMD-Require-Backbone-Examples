@@ -1,0 +1,40 @@
+require.config({
+
+	// urlArgs appends a get var to each script to stop browser caching
+	// during dev use the _dev version to never cache
+	// during prod use the _v version to cache at version level
+	urlArgs: "_d=" + (new Date()).getTime(), //dev
+	//urlArgs: "_v=1", //production
+
+	//the root path for all module lookups
+	baseUrl: "modules",
+
+	// paths are relative to baseUrl
+	paths: {
+		jquery: '../vendorAssets/libs/jquery',
+		bootstrap: '../vendorAssets/mixed/bootstrap/js/bootstrap.min',
+		underscore: '../vendorAssets/libs/underscore-min',
+		backbone: '../vendorAssets/libs/backbone-min',
+		text: '../vendorAssets/libs/require/text'
+	},
+
+	// The shim config allows us to configure dependencies for
+	// scripts that do not call define() to register a module
+	shim: {
+		'underscore': {
+			exports: '_'
+		},
+
+		'backbone': {
+			deps: ['underscore', 'jquery'],
+			exports: 'Backbone'
+		},
+
+		'bootstrap': {
+			deps: ['jquery']
+		},
+
+		'prettify': { }
+	}
+
+});
