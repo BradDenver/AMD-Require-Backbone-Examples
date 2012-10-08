@@ -1,0 +1,37 @@
+define([
+    'jquery',
+    'underscore',
+    'backbone',
+    'text!firstModule/templates/firstViewTemplate.html'
+], function($, _, Backbone, firstViewTemplate) {
+
+    //define FirstView view
+    var FirstView = Backbone.View.extend({
+
+		//the properties of this.el
+		tagName: 'div',
+		className: 'someClass',
+
+		templateFunc: _.template(templateFile),
+
+		initialize: function(options) {
+			//
+		},
+
+		events: {
+			//"event selector": "callback",
+		},
+
+		render: function() {
+			var tmpl = this.templateFunc();
+			this.$el.html(tmpl);
+
+			//returning this enables chaining
+			return this;
+		}
+
+    });
+
+    //return an un-instantiated view
+    return FirstView;
+});

@@ -62,7 +62,7 @@ require([
 
         var templateName = $(el).attr('data-template');
 
-        templates.push('text!start/templates/'+templateName+'.html');
+        templates.push('text!'+navMenu+'/templates/'+templateName+'.html');
         els.push(templateName);
 
     }, this);
@@ -78,6 +78,7 @@ require([
 		});
     } else {
 		prettyPrint();
+		buildMenu();
     }
 
     function buildMenu(){
@@ -98,8 +99,8 @@ require([
 		$('.sidebarNav').html(template({menus: menus}));
 
 		$('[data-spy="scroll"]').each(function () {
-              var $spy = $(this).scrollspy('refresh');
-            });
+			var $spy = $(this).scrollspy('refresh');
+		});
     }
 
     function angleBracketsToHtmlCode(str) {

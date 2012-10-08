@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Require Backbone Examples</title>
+    <!-- Bootstrap -->
+    <link href="vendorAssets/mixed/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendorAssets/mixed/google-code-prettify/prettify.css" type="text/css" rel="stylesheet" />
+    <link href="assets/css/main.css" rel="stylesheet">
+    <script data-main="main" src="vendorAssets/libs/require/require.js"></script>
+  </head>
+  <body data-spy="scroll" data-target=".sidebarNav" data-offset="70" data-navMenu="view">
+
+
+
+    <div role="main" class="container">
+
+      <div class="row">
+
+    <div class="span3 sidebarNav">&nbsp;</div>
+
+    <div class="span9">
+
+        <p class="lead">In the last section we created an empty RequireJS app. Now its time to give it a backbone and we will start off with a view.</p>
+
+        <section id="define">
+          <div class="page-header">
+            <h1>Defining a View</h1>
+          </div>
+
+          <p class="lead">We use the RequireJS function define() to declare our FirstView which is an extension of Backbone.View</p>
+
+          <pre class="prettyprint linenums" data-template="viewDefinition"></pre>
+
+          <h2 id="define-module">A new module</h2>
+          <p>We will create our new view as part of a new module called <code>firstModule</code> so following on from the folder structure we laid out in the previous section we create a new folder in our project modules folder <code>/modules/firstModule/</code>. Inside that we create four sub folders <code>collections</code>, <code>models</code>, <code>templates</code>, <code>views</code>. Inside our new views folder we create an new file, <code>/modules/firstModule/views/FirstView.js</code>, to house our FirstView class. <small>Note: by convention the file name matches the class name.</small></p>
+
+          <h2 id="define-define">Define( ) call</h2>
+          <p>To declare FirstView as an AMD module we use the RequireJS function define(). The syntax is very similar to the require() function we called from main.js in the last section. Again this function has two arguments, an array of dependencies and a call back function.</p>
+          <!-- TODO: show require.config as a tooltip -->
+          <p>For FirstView we have listed four dependencies. jQuery, underscore and backbone are listed first, again making use of the paths set in <code>require.config</code>. The last dependency listed is a little different <code>'text!firstModule/templates/firstViewTemplate.html'</code>. The first thing you may notice is the use of <code>text!</code>. This prefix tells RequireJS to load this files content as text rather than treating it as a script. We list the path of this file relative to the baseUrl we set in <code>require.config</code>. <code>firstViewTemplate.html</code> will contain the html template for our view. I will detail the use of this later.</p>
+          <p>The rest the file contains our FirstView class inside the call back function</p>
+
+          <h2 id="define-extend">Extending Backbone</h2>
+          <p>As you will come to see most Backbone classes are not used directly but instead are used as a base to inherit from via the <code>extend</code> method. Backbone views do not contain markup themselves but they always have an <code>el</code> property that refers to a DOM element. This element can either be created using the views <code>tagName</code>, <code>className</code>, <code>id</code> and <code>attributes</code> properties or can be an select for an existing dom element eg. <code>el: '#navBar'</code>. In our case we have used <code>tagName: 'div'</code> (which is unnecessary as it is the default) and <code>className: 'someClass'</code>.</p>
+
+          <p>The initialize function is called when the class is instantiated. At this stage we will leave it empty.</p>
+
+          <p>The events attribute has also been left empty at this. Event listeners can attached here but I will cover this later.</p>
+
+          <p>Last we define a very simple render method. We take advantage of the inbuilt <code>this.$el</code> reference to replace the html content of the views element. By ending render with <code>return this;</code> we can chain together other methods of the view when it is called.</p>
+
+          <h2 id="define-return">Happy Returns</h2>
+          <p>Once the class definition is complete we need to choose what this module should return. The two main options are a reference to the views constructor <code>return FirstView</code> (which is what we have done this time) requiring a call of <code>new FirstView();</code> to create the view later, or you could use <code>return new FirstView();</code> which will immediately instantiate the view and return a reference to the instance.</p>
+
+        </section>
+
+        <section id="template">
+          <div class="page-header">
+            <h1>Using a Template</h1>
+          </div>
+
+          <p class="lead">Inserting a string into a DOM element is fine but we want to use the template we asked for earlier. Lets have another go at this View.</p>
+
+          <pre class="prettyprint linenums" data-template="addingTemplate"></pre>
+
+          <p>The last item we put in the modules list of dependencies was <code>firstViewTemplate.html</code> and now its time to make use of this to fill our view with content. This is a two step process. First we call the Underscore _.template function which compiles the template to a function eg <code>templateFunc: _.template(templateFile)</code>. The returned function can then be called with (or without) data to return our required markup, <code>var tmpl = this.templateFunc();</code>. <code>templateFunc</code> is defined early in our View as it only needs to be called once.</p>
+
+          <p>Once we have our markup ready to insert we replace the views content with it, <code>this.$el.html(tmpl);</code>. <code>this.$el</code> is a cached reference to the Views DOM element that is provided by Backbone.View.</p>
+
+        </section>
+
+        <section id="data">
+          <div class="page-header">
+            <h1>Data to the Template</h1>
+          </div>
+
+          <p class="lead">Above we have shown how to update the elements content with that of a template but the real power is in passing data to the template. Lets try it.</p>
+
+          <pre class="prettyprint linenums" data-template="dataTemplate"></pre>
+
+          <p>The render method has been updated. We define an object <code>var myData = {title: 'Content', main: 'is king!'};</code> that holds our data and pass that object to <code>templateFunc</code> to get the final markup.</p>
+
+          <p>So</p>
+          <pre class="prettyprint linenums" data-template="firstViewTemplate"></pre>
+          <p>becomes</p>
+          <pre class="prettyprint linenums" data-template="firstView"></pre>
+
+        </section>
+
+        <section id="underscore">
+          <div class="page-header">
+            <h1>Template Magic</h1>
+          </div>
+
+          <p class="lead">Its not magic but the Underscores templating function is very useful.</p>
+
+          <p>Underscores template function is documented <a href="http://underscorejs.org/#template">here</a>. Within the template there are several syntaxes used. <code><%= ... %></code> as used before will print a value at that point, while <code><% ... %></code> will execute the javascript code within it. To show them both in use lets update our render function with a new data object to containing an array.></p>
+          <pre class="prettyprint linenums">var myData = {title: 'Content', main: 'is king!', chorus: ['Long live the king!', 'Long live the king!', 'Long live the king!']};</pre>
+
+          <p>So now</p>
+          <pre class="prettyprint linenums" data-template="firstViewTemplate2"></pre>
+          <p>becomes</p>
+          <pre class="prettyprint linenums" data-template="firstView2"></pre>
+          <!-- TODO: link to complete example and source, plance in examples folder -->
+        </section>
+
+        <p class="lead">Now we have a working Backbone app that renders a template interpolated with our data. In the <a href="data.html">next section</a> we will look into Backbones data structures, Backbone.Model and Backbone.Collection, to work with some more useful data.</p>
+        <p></p>
+
+    </div>
+
+</div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

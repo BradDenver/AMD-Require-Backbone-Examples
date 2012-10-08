@@ -1,0 +1,9 @@
+render: function() {
+	var myData = {title: 'Content', main: 'is king!'};
+
+	var tmpl = this.templateFunc(myData);
+	this.$el.html(tmpl);
+
+	//returning this enables chaining
+	return this;
+}

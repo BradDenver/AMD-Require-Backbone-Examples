@@ -28,3 +28,9 @@ body {
 	-moz-border-radius: 4px 0 4px 0;
 	border-radius: 4px 0 4px 0;
 }
+
+/* stops item being hidden behind fixed header nave when scroll to anchor*/
+section, h2 {
+	margin-top: -50px;
+	padding-top: 50px;
+}
