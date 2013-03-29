@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Dev Talks TV</title>
+ <link href="http://devtalks.tv/atom.xml" rel="self"/>
+ <link href="http://devtalks.tv/"/>
+ <updated>2013-03-29T00:00:00Z</updated>
+ <id>http://devtalks.tv/</id>
+ <author>
+   <name>Dev Talks TV</name>
+   <email>devtalkstv@gmail.com</email>
+ </author>
+
+
+ <entry>
+   <title>Test Title</title>
+   <link href="http://localhost:8888/conf/splash2.html"/>
+   <updated>2013-03-29T00:00:00Z</updated>
+   <id>http://devtalks.tv1</id>
+   <content type="html">a test post</content>
+ </entry>
+
+<entry>
+   <title>Test Title 2</title>
+   <link href="http://localhost:8888/conf/splash2.html"/>
+   <updated>2013-03-29T00:00:00Z</updated>
+   <id>http://devtalks.tv2</id>
+   <content type="html">a test post 2</content>
+ </entry>
+
+
+</feed>
