@@ -15,7 +15,7 @@
  <entry>
    <title>Test Title f</title>
    <link href="http://localhost:8888/conf/splash2.html"/>
-   <updated>2013-03-30T19:28:00Z</updated>
+   <updated>2013-03-30T19:29:00Z</updated>
    <id>http://devtalks.tv1</id>
    <content type="html">a test post a</content>
  </entry>
@@ -32,7 +32,7 @@
    <title>Test Title</title>
    <link href="http://localhost:8888/conf/splash2.html"/>
    <updated>2013-03-29T00:01:01Z</updated>
-   <id>http://devtalks.tv4</id>
+   <id>http://devtalks.tv3</id>
    <content type="html">a test post a</content>
  </entry>
  
@@ -40,7 +40,7 @@
    <title>Test Title 4</title>
    <link href="http://localhost:8888/conf/splash2.html"/>
    <updated>2013-03-30T19:28:01Z</updated>
-   <id>http://devtalks.tv3</id>
+   <id>http://devtalks.tv4</id>
    <content type="html">a test post a</content>
  </entry>
 
