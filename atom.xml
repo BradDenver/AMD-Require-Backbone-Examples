@@ -4,7 +4,7 @@
  <title>Dev Talks TV</title>
  <link href="http://devtalks.tv/atom.xml" rel="self"/>
  <link href="http://devtalks.tv/"/>
- <updated>2013-03-29T00:01:01Z</updated>
+ <updated>2013-03-30T00:01:01Z</updated>
  <id>http://devtalks.tv/</id>
  <author>
    <name>Dev Talks TV</name>
@@ -13,9 +13,9 @@
 
 
  <entry>
-   <title>Test Title</title>
+   <title>Test Title f</title>
    <link href="http://localhost:8888/conf/splash2.html"/>
-   <updated>2013-03-29T00:01:01Z</updated>
+   <updated>2013-03-30T00:01:01Z</updated>
    <id>http://devtalks.tv1</id>
    <content type="html">a test post a</content>
  </entry>
